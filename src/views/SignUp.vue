@@ -51,21 +51,23 @@ export default {
             checkbox: false,
             userId: '',
             userPassword: '',
+            userName: '',
+            userEmail: ''
         }
     },
     methods: {
         requestSignUp() {
             const parameter = {
-                userId: this.userId,
-                userPassword: this.userPassword,
-                userEmail: this.userEmail,
-                userName: this.userName
+                id: this.userId,
+                password: this.userPassword,
+                email: this.userEmail,
+                name: this.userName
 
             }
-            this.$router.push('/main');
-            //this.$store.dispatch('signup', parameter).then((response) => {
-            //    
-            //})
+            this.$store.dispatch('signup', parameter).then((response) => {
+               
+                this.$router.push('/signIn');
+            })
         },
     },
 }

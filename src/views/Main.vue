@@ -22,8 +22,8 @@
     methods: {
       requestSignIn() {
         const parameter = {
-          userId : this.userId,
-          userPassword : this.userPassword,
+          id : this.userId,
+          password : this.userPassword,
           
         }
         this.$store.dispatch('login', parameter).then((response)=>{
