@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import router from '@/router'
 
 //create axios instance
 const service = axios.create({
@@ -19,16 +19,27 @@ axios.interceptors.request.use(function(config) {
 });
 
 // Add a response interceptor - 응답 인터셉터
-axios.interceptors.response.use(function(response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger	
-    // - 200번대 응답은 여기서 처리
-    // Do something with response data - 응답받은 데이터 처리
-    return response;
-}, function(error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // - 200번대 외의 응답은 여기서 처리
-    // Do something with response error - 응답 에러 처리
-    return Promise.reject(error);
-});
+axios.interceptors.response.use(
+    (response) => {
+        // Any status code that lie within the range of 2xx cause this function to trigger	
+        // - 200번대 응답은 여기서 처리
+        // Do something with response data - 응답받은 데이터 처리
+        return response
+    },
+    (error) => {
+        console.log('99999999999999')
+        if (error.response && error.response.status) {
+            console.log(error.response.message)
+            if (error.response.code === 'U0' || error.response.code === 'U1') {
+                console.log(error)
+            }
+        }
+        // Any status codes that falls outside the range of 2xx cause this function to trigger
+        // - 200번대 외의 응답은 여기서 처리
+        // Do something with response error - 응답 에러 처리
+        return Promise.reject(error);
+    }
+
+);
 
 export default service

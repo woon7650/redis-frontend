@@ -38,12 +38,11 @@ export const user = {
             return new Promise((resolve, reject) => {
                 login(pararmeter)
                     .then((response) => {
-                        console.log(response)
-                        alert('로그인 성공');
+                        alert("로그인 성공")
                         resolve(true);
                     })
                     .catch((error) => {
-                        alert('로그인 실패');
+                        alert(error.response.data.message)
                         reject(error)
                     });
             })

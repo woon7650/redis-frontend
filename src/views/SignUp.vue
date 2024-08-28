@@ -66,7 +66,7 @@ export default {
             }
             this.$store.dispatch('signup', parameter).then((response) => {
                
-                this.$router.push('/signIn');
+                this.$router.push('/');
             })
         },
     },
