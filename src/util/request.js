@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
+import { getAccessToken } from '@/store/module/user'
 import router from '@/router'
 
 //create axios instance
@@ -28,6 +28,7 @@ axios.interceptors.response.use(
         // Any status code that lie within the range of 2xx cause this function to trigger	
         // - 200번대 응답은 여기서 처리
         // Do something with response data - 응답받은 데이터 처리
+        console.log(response)
         return response
     },
     (error) => {

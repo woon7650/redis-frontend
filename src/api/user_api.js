@@ -1,16 +1,9 @@
 import request from '@/util/request'
 
-export function login(data) {
-    return request({
-        url: '/user/login',
-        method: 'post',
-        data
-    })
-}
 
-export function signup(data) {
+export function selectUserInfo(data) {
     return request({
-        url: '/user/signup',
+        url: '/select/info',
         method: 'post',
         data
     })

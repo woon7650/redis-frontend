@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
 const SignIn = () =>
     import ('@/views/SignIn.vue')
 const SignUp = () =>
@@ -27,6 +28,7 @@ const routes = [{
 
 
 const router = new VueRouter({
+    mode: 'history',
     routes,
     base: process.env.NODE_ENV === 'development' ? '/' : '/',
 })
